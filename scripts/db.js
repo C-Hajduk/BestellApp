@@ -28,10 +28,17 @@ let myDishes = [
     amount: 0,
   },
   {
-    name: "Döner Kebab Teller",
-    preis: 12.9,
+    name: "Pizza New York",
+    preis: 17.4,
     description:
-      "Würziges Dönerfleisch vom Spieß serviert mit Reis, frischem Salat, Gurken, Tomaten und Knoblauch-Joghurt-Sauce",
+      "Frischer Pizzateig mit Knoblauchsauce, Schinken, milden Peperoni, frischen Champignons, Mozzarella & echtem Gouda-Käse",
+    amount: 0,
+  },
+  {
+    name: "Orient Fries",
+    preis: 9.9,
+    description:
+      "Knoblauch-Fries mit Hähnchen-Kebab, Creamy Cheese-Sauce, Cocktail-Sauce, roten Zwiebeln & Petersilie",
     amount: 0,
   },
 ];
