@@ -5,26 +5,29 @@
 function renderDishes() {
   let menuContentRef = document.getElementById("menuContent");
   menuContentRef.innerHTML = "";
-  /*   if (localStorage.getItem("dishes")) {
+  if (localStorage.getItem("dishes")) {
     dishes = getFromLocalStorage("dishes", dishes);
-  } */
+  }
 
   for (let index = 0; index < dishes.length; index++) {
-    menuContentRef.innerHTML += generateDishes(index);
+    menuContentRef.innerHTML += generateDishesTemplate(index);
   }
 }
 
 /* ========================================================================= */
 
-/* function renderBasket() {
-  let basketDishes = document.getElementById("basketDishes");
-  basketDishes.innerHTML = "";
+function renderBasket() {
+  let basketDishesRef = document.getElementById("basketDishes");
+  basketDishesRef.innerHTML = "";
+  if (localStorage.getItem("basket")) {
+    basketDishes = getFromLocalStorage("basketDishes", basketDishes);
+  }
+
+  for (let indexBasket = 0; indexBasket < basketDishes.length; indexBasket++) {
+    basketDishesRef.innerHTML += generateBasketTemplate(indexBasket);
+  }
 }
 
-for (let indexBasket = 0; indexBasket < array.length; indexBasket++) {
-  const element = array[index];
-}
- */
 /* ====================================
             Gerichte
 ======================================= */
@@ -32,11 +35,24 @@ for (let indexBasket = 0; indexBasket < array.length; indexBasket++) {
 /* ====================================
             Warenkorb
 ======================================= */
-
 // hier muss ich den Inhalt von menuContent hinein pushen
+function addToBasket(index) {
+  let basket = dishes.splice(index, 1);
+  basketDishes.push(basket[0]);
+
+  saveToLocalStorage("basketDishes", basketDishes);
+
+  renderDishes();
+  renderBasket();
+}
 
 /* ====================================
             Löschen des Warenkorb
 ======================================= */
-
 // hier muss ich den Inhalt vom Warenkorb löschen
+function deletBasket() {
+  basketDishes.splice(indexBasket);
+
+  renderDishes();
+  renderBasket();
+}

@@ -43,4 +43,4 @@ let dishes = [
   },
 ];
 
-/* let basketDishes = []; */
+let basketDishes = [];
