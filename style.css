@@ -65,19 +65,18 @@
             main
 =================================*/
 
-
-
 .main_container {
     display: flex;
     flex-direction: row;
     flex-grow: 1;
-    max-width: 1400px;
-    margin: 0 auto;
+    max-width: 100%;
+    min-height: 100vh;
 }
 
 .menu_wrapper {
   width: calc(100% - 300px);
   border: 2px solid #7C521B;
+  position: relative;
 }
 
 .restaurant_hero {
@@ -87,33 +86,41 @@
                         url('./assets/images/Headerbilder_Produktgruppen_2184x656px_Pizza_849x255.webp');
   background-size: cover;
   background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .restaurant_logo {
   width: 120px;
   height: 120px;
-  background: #FFFAFE;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-  position: relative;
+  position: absolute;
+  top: 240px;              /* statt bottom: → sitzt bei 300px Hero-Höhe halb drüber */
+  left: 50%;
+  transform: translateX(-50%);
   overflow: hidden;
+  background: #FFFAFE;     /* Weißer Kreis sichtbar */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  z-index: 2; 
 }
 
 .restaurant_logo::after {
-  content: '';
-  font-size: 3rem;
+  content: "";
+  position: absolute;
+  inset: 10px;     
+  background-image: url("./assets/images/20250915_1747_Interaktive Bestell-App Grafik_simple_compose_01k570ya8jekw9hwmca1ctd1w2.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
 }
 
 .restaurant_info {
   display: flex;
   flex-direction: column;
+  align-items: center;
   background-color: #FFFAFE;
+  padding: 80px 20px 20px; /* Platz für Logo oben */
+  border-radius: 0 0 12px 12px;
+  text-align: center;
 }
 
 .restaurant_rating {
@@ -127,22 +134,26 @@
 }
 
 .restaurant_rating p {
-
+  font-size: 16px;
+  color: #FFA000;
+  margin-bottom: 1rem;
 }
 
 .menu_navigation {
   display: flex;
   gap: 1rem;
-  padding: 0.5rem 0;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .nav_tab {
-  padding: 0.5rem 1rem;
-  background: #7C521B; /* Braun */
-  color: #FFFAFE; 
-  border-radius: 8px;
+  padding: 12px 24px;
+  background: #7C521B;
+  color: #FFFAFE;
+  border-radius: 20px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: all 0.3s;
+  font-size: 14px;
 }
 
 .nav_tab:hover,
@@ -151,22 +162,73 @@
   color: #000223;
 }
 
+.main_courses {
+  position: relative;
+  height: 150px;
+  background: linear-gradient(135deg, rgba(0,2,35,0.6), rgba(0,2,35,0.8)),
+              url(./assets/images/Headerbilder_Produktgruppen_2184x656px_Mittagsangebot_1332x400.webp);
+  background-size: cover;
+  background-position: center;
+  }
+
+.main_courses h3 {
+  margin: 0;
+  font-size: 32px;
+  text-align: center;
+  }
+
 .menu_content {
   background-color: #FFFAFE;
+  padding: 20px;
+  display: grid;
+  gap: 20px;
 }
 
-.menut_item {
+.menu_item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 0;
-  border-bottom: 1px solid #7C521B;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: transform 0.2s;
 }
 
-.menut_item:hover {
+.item_info{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 12px;
+  padding: 8px;
+}
+
+.item_info:hover {
   background-color: rgba(255, 160, 0, 0.1); /* Leichtes Orange-Hover */
+  transform: translateY(-2px);           /* leichtes Hover-Feeling */
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+  border-radius: 8px;
+}
+
+/* Gericht Name & Beschreibung */
+.item_info > div:first-child {
+  font-size: 21px;    /* Größere Schrift für das Gericht */
+  font-weight: bold;
+  color: #000223;
+}
+
+.item_info > div:nth-child(2) { /* Preis */
+  font-size: 19px;
+  font-weight: bold;
+  color: #FFA000;       /* gleiche Farbe wie Button */
+  margin-right: 15px;
+}
+
+/* Beschreibung optional kleiner */
+.item_info > div:nth-child(3) {
+  font-size: 16px;
+  color: #555;
 }
 
 .add_button {
@@ -190,53 +252,41 @@
   color: #000223;
 }
 
-.basket_wrapper {
-  width: 300px;
-  flex-grow: 1;
-  padding: 16px;
-  border: 2px solid #7C521B;
-  background-color: #000223;
-  color: #FFFAFE;
+.main_supplements {
+  position: relative;
+  height: 150px;
+  background: linear-gradient(135deg, rgba(0,2,35,0.6), rgba(0,2,35,0.8)),
+              url(./assets/images/Headerbilder_Produktgruppen_2184x656px_Mittagsangebot_1332x400.webp);
+  background-size: cover;
+  background-position: center;
+  }
+
+.overlay_text {
+  position: absolute; /* Positioniert den Text absolut innerhalb des Containers */
+  top: 50%; /* Zentriert den Text vertikal */
+  left: 50%; /* Zentriert den Text horizontal */
+  transform: translate(-50%, -50%); /* Passt die Positionierung für perfekte Zentrierung an */
+  color: #FFA000; /* Farbe des Textes */
+  padding: 10px; /* Innenabstand für den Text */
+  z-index: 10; /* Sorgt dafür, dass der Text über dem Bild liegt (höherer Wert) */
 }
 
-.basket {
-  width: 100%;
-  height: 400px;
-  position: sticky;
-  top: 20px;
-}
-
-footer {
-  background: #000223; /* Dunkelblau */
-  color: #FFFAFE; /* Weiß */
-  text-align: center;
-  padding: 1rem;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  .main_supplements h3 {
+    margin: 0;
+    font-size: 32px;
+    text-align: center;
+  }
 
 /*===============================
             footer
 =================================*/
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    width: 100%;
+    height: 60px;
+    background-color: #000223;
+}
