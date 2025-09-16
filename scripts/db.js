@@ -25,7 +25,7 @@ let dishes = [
     preis: "10.50",
     description:
       "Beliebte Pizza-Kreation mit Tomatensauce, Mozzarella, saftigem Schinken und süßer Ananas",
-    amount: 0.5,
+    amount: 0,
   },
   {
     name: "Pizza New York",
