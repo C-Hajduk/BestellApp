@@ -6,11 +6,13 @@ function renderDishes() {
   let menuContentRef = document.getElementById("menuContent");
   menuContentRef.innerHTML = "";
   if (localStorage.getItem("dishes")) {
-    dishes = getFromLocalStorage("dishes", dishes);
+    // checkt ob es was im local storage gibt
+    dishes = getFromLocalStorage("dishes", dishes); // holt sich die Gerichte aus dem local storage
   }
 
   for (let index = 0; index < dishes.length; index++) {
-    menuContentRef.innerHTML += generateDishesTemplate(index);
+    // geht die Gerichte durch
+    menuContentRef.innerHTML += generateDishesTemplate(index); // fügt die Gerichte dem div hinzu
   }
 }
 
@@ -19,7 +21,7 @@ function renderDishes() {
 function renderBasket() {
   let basketDishesRef = document.getElementById("basketDishes");
   basketDishesRef.innerHTML = "";
-  if (localStorage.getItem("basket")) {
+  if (localStorage.getItem("basketDishes")) {
     basketDishes = getFromLocalStorage("basketDishes", basketDishes);
   }
 
@@ -29,18 +31,14 @@ function renderBasket() {
 }
 
 /* ====================================
-            Gerichte
-======================================= */
-
-/* ====================================
             Warenkorb
 ======================================= */
 // hier muss ich den Inhalt von menuContent hinein pushen
 function addToBasket(index) {
-  let basket = dishes.splice(index, 1);
-  basketDishes.push(basket[0]);
+  // verschiebt die Notiz in den Warenkorb
+  basketDishes.push(dishes[index]); // fügt das Gericht dem Warenkorb hin
 
-  saveToLocalStorage("basketDishes", basketDishes);
+  // saveToLocalStorage("basketDishes", basketDishes); // speichert die Gerichte im local Storage
 
   renderDishes();
   renderBasket();

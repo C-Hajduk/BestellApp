@@ -16,11 +16,11 @@ function generateBasketTemplate(indexBasket) {
   return `
         <div class="menu_item">
             <div class="item_info">
-                <div>${dishes[indexBasket].name}</div>
+                <div>${basketDishes[indexBasket].name}</div>
                 <button>-</button>
                 <span>3x</span>
                 <button>+</button>
-                <div>${dishes[index].preis} €</div>
+                <div>${basketDishes[indexBasket].preis.toFixed(2)} €</div>
                 <button onclick="deleteBasket(${indexBasket})">trash</button>
             </div>
     `;
