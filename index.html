@@ -8,11 +8,9 @@
     <link rel="stylesheet" href="./syles/standard.css">
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./syles/basket.css">
-
-
 </head>
 
-<body onload="onload">
+<body onload="renderDishes()">
 
     <header class="header">
 
@@ -79,88 +77,29 @@
             </div>
 
             <!-- Menu Section -->
-            <div class="menu_content">
+            <div id="menuContent" class="menu_content">
+                <!-- Template generateDishes -->
 
-                <div class="menu_item">
-                    <div class="item_info">
-                        <div>Pizza Margherita</div>
-                        <div>8,50€</div>
-                        <div>Klassische Pizza mit Tomatensauce, Mozzarella und frischem Basilikum auf knusprigem Teig
-                        </div>
+
+                <!-- Supplements Section -->
+                <div class="main_supplements">
+                    <div class="overlay_text">
+                        <h3>Beilagen</h3>
                     </div>
-                    <button class="add_button">+</button>
                 </div>
-
-                <div class="menu_item">
-                    <div class="item_info">
-                        <div>Pizza Salami</div>
-                        <div>9,90€</div>
-                        <div>Herzhafte Pizza mit Tomatensauce, Mozzarella und würziger Salami, ein echter Klassiker
-                        </div>
-                    </div>
-                    <button class="add_button">+</button>
-                </div>
-
-                <div class="menu_item">
-                    <div class="item_info">
-                        <div>Cheeseburger Deluxe</div>
-                        <div>11,50€</div>
-                        <div>Saftiger Rindfleisch-Patty mit Cheddar-Käse, Salat, Tomate, Zwiebeln und hausgemachter
-                            Burger-Sauce im Brioche-Brötchen</div>
-                    </div>
-
-                    <button class="add_button">+</button>
-                </div>
-
-                <div class="menu_item">
-                    <div class="item_info">
-                        <div>Pizza Hawaii</div>
-                        <div>10,50€</div>
-                        <div>Beliebte Pizza-Kreation mit Tomatensauce, Mozzarella, saftigem Schinken und süßer Ananas
-                        </div>
-                    </div>
-                    <button class="add_button">+</button>
-                </div>
-
-                <div class="menu_item">
-                    <div class="item_info">
-                        <div>Pizza New York</div>
-                        <div>17,40€</div>
-                        <div>Frischer Pizzateig mit Knoblauchsauce, Schinken, milden Peperoni, frischen Champignons,
-                            Mozzarella & echtem Gouda-Käse</div>
-                    </div>
-                    <button class="add_button">+</button>
-                </div>
-
-                <div class="menu_item">
-                    <div class="item_info">
-                        <div>Orient Fries</div>
-                        <div>9,90€</div>
-                        <div>Knoblauch-Fries mit Hähnchen-Kebab, Creamy Cheese-Sauce, Cocktail-Sauce, roten Zwiebeln &
-                            Petersilie</div>
-                    </div>
-                    <button class="add_button">+</button>
-                </div>
-
-            </div>
-
-            <!-- Supplements Section -->
-
-            <div class="main_supplements">
-                <div class="overlay_text">
-                    <h3>Beilagen</h3>
-                </div>
-            </div>
-
-            <div class="menu_content">
-
-
-            </div>
 
         </Section>
 
+        <!-- Warenkorb -->
         <section class="basket_wrapper">
-            <div class="basket"></div>
+            <div class="basket">
+                <p>Warenkorb</p>
+                <hr>
+                <div id="basketDishes">
+                    <!-- Dishes aus dem menuContent -->
+                </div>
+            </div>
+
         </section>
 
     </main>

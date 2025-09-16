@@ -1,4 +1,4 @@
-let myDishes = [
+let dishes = [
   {
     name: "Pizza Margherita",
     preis: 8.5,
@@ -42,3 +42,5 @@ let myDishes = [
     amount: 0,
   },
 ];
+
+/* let basketDishes = []; */
