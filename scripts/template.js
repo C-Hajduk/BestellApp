@@ -12,22 +12,25 @@ function generateDishesTemplate(index) {
 }
 
 function generateBasketTemplate(indexBasket) {
+    let dish = basketDishes[indexBasket];
+    let totalPrice = (dish.preis * dish.amount).toFixed(2);
+
   return `
         <div class="menu_item menu_item_basket">
                 <div>${basketDishes[indexBasket].name}</div>
                 <button onclick="decreaseAmount(${indexBasket})">-</button>
                 <span>${basketDishes[indexBasket].amount}</span>
                 <button onclick="increaseAmount(${indexBasket})">+</button>
-                <div>${basketDishes[indexBasket].preis.toFixed(2)} €</div>
+                <div>${totalPrice} €</div>
                 <button onclick="deleteBasket(${indexBasket})"><img src="./assets/fonts/trash-can-regular-full.svg" alt="Papierkorb"></button>
         </div>
     `;
 }
 
-/* function generateBasketSummary() {
+function generateBasketSummaryTemplate(subtotal, delivery, total) {
     return `
-        <p>Zwischensumme €</p>
-        <p>Lieferkosten €</p>
-        <p>Gesamt €</p>
-    `
-} */
+        <p>Zwischensumme: ${subtotal.toFixed(2)} €</p>
+        <p>Lieferkosten: ${delivery.toFixed(2)} €</p>
+        <p><strong>Gesamt: ${total.toFixed(2)} €</strong></p>
+    `;
+}

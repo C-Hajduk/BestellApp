@@ -6,19 +6,19 @@ function renderDishes() {
   let menuContentRef = document.getElementById("menuContent");
   menuContentRef.innerHTML = "";
   if (localStorage.getItem("dishes")) {
-    // checkt ob es was im local storage gibt
-    dishes = getFromLocalStorage("dishes", dishes); // holt sich die Gerichte aus dem local storage
+  
+    dishes = getFromLocalStorage("dishes", dishes); 
   }
 
   for (let index = 0; index < dishes.length; index++) {
-    // geht die Gerichte durch
-    menuContentRef.innerHTML += generateDishesTemplate(index); // fügt die Gerichte dem div hinzu
+    menuContentRef.innerHTML += generateDishesTemplate(index);
   }
 }
 
 function renderBasket() {
   let basketDishesRef = document.getElementById("basketDishes");
   basketDishesRef.innerHTML = "";
+
   if (localStorage.getItem("basketDishes")) {
     basketDishes = getFromLocalStorage("basketDishes", basketDishes);
   }
@@ -26,6 +26,7 @@ function renderBasket() {
   for (let indexBasket = 0; indexBasket < basketDishes.length; indexBasket++) {
     basketDishesRef.innerHTML += generateBasketTemplate(indexBasket);
   }
+  renderBasketSummary()
 }
 
 /* ====================================
@@ -44,8 +45,9 @@ function addToBasket(index) {
     renderBasket();
 }
 
-  function increaseAmount (indexBasket) {
+   function increaseAmount (indexBasket) {
     basketDishes[indexBasket].amount++;
+    
 
     renderDishes();
     renderBasket();
@@ -66,21 +68,31 @@ function addToBasket(index) {
   // saveToLocalStorage("basketDishes", basketDishes); // speichert die Gerichte im local Storage
 
 
-/* ====================================
-    Gericht addieren und suptrahieren
-======================================= */
+/* ==============================================================
+    Gericht addieren, suptrahieren und Gesamtsumme aktualisieren
+================================================================= */
 
 function renderBasketSummary() {
-  
+  let subtotal = 0;
+  let delivery = 0;
+  let total = 0;
+
+  for (let index = 0; index < basketDishes.length; index++) {
+    let dish = basketDishes[index];
+    let priceForDish = dish.preis * dish.amount;
+    subtotal += priceForDish;    
+  }
+
+  if (basketDishes.length > 0) {
+    delivery = 5.00;
+  }
+
+  total = subtotal + delivery;
+
+  let basketSummaryRef = document.getElementById("basketSummary");
+  basketSummaryRef.innerHTML = generateBasketSummaryTemplate(subtotal, delivery, total);
+
 }
-
-
-
-/* ====================================
-      Gesamtsumme aktualisieren
-======================================= */
-
-
 
 /* ====================================
             Löschen des Warenkorb
@@ -90,7 +102,6 @@ function deleteBasket(indexBasket) {
   basketDishes[indexBasket].amount = 0;
   basketDishes.splice(indexBasket,1)
 
-  renderDishes();
   renderBasket();
 }
 
