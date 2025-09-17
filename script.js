@@ -32,7 +32,7 @@ function renderBasket() {
             Warenkorb
 ======================================= */
 
-function addToBasket(index) { // index ist die Position des Gerichtes im Array
+function addToBasket(index) {
 
   if (dishes[index].amount == 0) {
     basketDishes.push(dishes[index])
@@ -40,18 +40,39 @@ function addToBasket(index) { // index ist die Position des Gerichtes im Array
   }else {
     dishes[index].amount++
   }
+    renderDishes();
+    renderBasket();
+}
+
+  function increaseAmount (indexBasket) {
+    basketDishes[indexBasket].amount++;
+
+    renderDishes();
+    renderBasket();
+  }
+
+  function decreaseAmount (indexBasket) {
+    if (basketDishes[indexBasket].amount > 1) {
+      basketDishes[indexBasket].amount--;
+    } else {
+      basketDishes[indexBasket].amount = 0;
+      basketDishes.splice(indexBasket, 1);
+    }
+
+    renderDishes();
+    renderBasket();
+  }
 
   // saveToLocalStorage("basketDishes", basketDishes); // speichert die Gerichte im local Storage
 
-  renderDishes();
-  renderBasket();
-}
 
 /* ====================================
     Gericht addieren und suptrahieren
 ======================================= */
 
-
+function renderBasketSummary() {
+  
+}
 
 
 

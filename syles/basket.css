@@ -23,6 +23,7 @@
   padding: 12px;
   background: none;
   margin-top: 8px;
+  margin-bottom: 8px;
   gap: 8px;
 }
 
@@ -74,14 +75,25 @@
 .menu_item_basket > button:nth-child(6) {
   width: 26px;
   height: 26px;
-  background: none;
-  color: #FFA000;
+  background-color: #FFA000;
   font-size: 12px;
   font-weight: bold;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.fa-regular {
+  width: 26px;
+  height: 26px;
+  background-color: #FFA000;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
 }
 
 .menu_item_basket_controls {
