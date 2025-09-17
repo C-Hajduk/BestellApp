@@ -1,5 +1,5 @@
 .basket_wrapper {
-  width: 300px;
+  width: 400px;
   flex-grow: 1;
   padding: 16px;
   border: 2px solid #7C521B;
@@ -15,4 +15,79 @@
   background: rgba(255,255,255,0.05);
   border-radius: 12px;
   padding: 20px;
+}
+
+.menu_item_basket {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 12px;
+  background: none;
+  margin-top: 8px;
+  gap: 8px;
+}
+
+.menu_item_basket > div:first-child {
+  font-size: 18px;    /* Größere Schrift für das Gericht */
+  font-weight: bold;
+  color: #FFA000;
+  width: 100%; 
+}
+
+.menu_item_basket > button:nth-child(2) { 
+  width: 26px;
+  height: 26px;
+  background: none;
+  color: #FFA000;
+  font-size: 26px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Beschreibung optional kleiner */
+.menu_item_basket > span:nth-child(3) {
+  font-size: 20px;
+  color: #FFA000;
+}
+
+.menu_item_basket > button:nth-child(4) { 
+  width: 26px;
+  height: 26px;
+  background: none;
+  color: #FFA000;
+  font-size: 26px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu_item_basket > div:nth-child(5) {
+  font-size: 18px;    /* Größere Schrift für das Gericht */
+  font-weight: bold;
+  color: #FFA000;
+}
+
+.menu_item_basket > button:nth-child(6) {
+  width: 26px;
+  height: 26px;
+  background: none;
+  color: #FFA000;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu_item_basket_controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  width: 100%;  /* Bedienelemente in einer Zeile */
 }

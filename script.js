@@ -48,9 +48,26 @@ function addToBasket(index) {
             Löschen des Warenkorb
 ======================================= */
 // hier muss ich den Inhalt vom Warenkorb löschen
-function deletBasket() {
-  basketDishes.splice(indexBasket);
+function deleteBasket(indexBasket) {
+ basketDishes.splice(indexBasket,);
 
   renderDishes();
   renderBasket();
 }
+
+
+/* =====================================
+            Local Storage
+======================================== */
+
+/* function saveToLocalStorage(name, array) {
+  localStorage.setItem(name,JSON.stringify(array));
+}
+
+function getFromLocalStorage(name, myArray) {
+  let myArray = JSON.parse(localStorage.getItem(name))
+  if (myArray) {
+    myArray = myArray;
+    return myArray;
+  }
+} */

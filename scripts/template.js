@@ -14,14 +14,13 @@ function generateDishesTemplate(index) {
 
 function generateBasketTemplate(indexBasket) {
   return `
-        <div class="menu_item">
-            <div class="item_info">
+        <div class="menu_item menu_item_basket">
                 <div>${basketDishes[indexBasket].name}</div>
                 <button>-</button>
                 <span>3x</span>
                 <button>+</button>
                 <div>${basketDishes[indexBasket].preis.toFixed(2)} €</div>
                 <button onclick="deleteBasket(${indexBasket})">trash</button>
-            </div>
+        </div>
     `;
 }
