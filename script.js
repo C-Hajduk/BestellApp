@@ -16,8 +16,6 @@ function renderDishes() {
   }
 }
 
-/* ========================================================================= */
-
 function renderBasket() {
   let basketDishesRef = document.getElementById("basketDishes");
   basketDishesRef.innerHTML = "";
@@ -33,10 +31,15 @@ function renderBasket() {
 /* ====================================
             Warenkorb
 ======================================= */
-// hier muss ich den Inhalt von menuContent hinein pushen
-function addToBasket(index) {
-  // verschiebt die Notiz in den Warenkorb
-  basketDishes.push(dishes[index]); // fügt das Gericht dem Warenkorb hin
+
+function addToBasket(index) { // index ist die Position des Gerichtes im Array
+
+  if (dishes[index].amount == 0) {
+    basketDishes.push(dishes[index])
+    dishes[index].amount++
+  }else {
+    dishes[index].amount++
+  }
 
   // saveToLocalStorage("basketDishes", basketDishes); // speichert die Gerichte im local Storage
 
@@ -45,16 +48,30 @@ function addToBasket(index) {
 }
 
 /* ====================================
+    Gericht addieren und suptrahieren
+======================================= */
+
+
+
+
+
+/* ====================================
+      Gesamtsumme aktualisieren
+======================================= */
+
+
+
+/* ====================================
             Löschen des Warenkorb
 ======================================= */
-// hier muss ich den Inhalt vom Warenkorb löschen
+
 function deleteBasket(indexBasket) {
- basketDishes.splice(indexBasket,);
+  basketDishes[indexBasket].amount = 0;
+  basketDishes.splice(indexBasket,1)
 
   renderDishes();
   renderBasket();
 }
-
 
 /* =====================================
             Local Storage
