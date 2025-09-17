@@ -13,7 +13,9 @@ function generateDishesTemplate(index) {
 
 function generateBasketTemplate(indexBasket) {
     let dish = basketDishes[indexBasket];
+    // Aktuelles Gericht für leichteren Zugriff
     let totalPrice = (dish.preis * dish.amount).toFixed(2);
+    // Preis des Gerichtes multipliziert mit Menge, gerundet auf 2 Nachkommastellen
 
   return `
         <div class="menu_item menu_item_basket">
