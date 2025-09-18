@@ -147,7 +147,7 @@ function deleteBasket(indexBasket) {
 }
 
 /* ======================================
-        Dialog öffnen für Bestellung
+        Dialog öffnen und schließen für Bestellung
 ========================================= */
 
 function addOrder () { 
@@ -163,10 +163,6 @@ function addOrder () {
 
   renderBasket();
 }
-
-/* ======================================
-        Dialog öffnen für Bestellung
-========================================= */
 
 function closeDialog() {
   let dialogRef = document.getElementById("dialog");
