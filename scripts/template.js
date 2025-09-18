@@ -31,8 +31,9 @@ function generateBasketTemplate(indexBasket) {
 
 function generateBasketSummaryTemplate(subtotal, delivery, total) {
     return `
-        <p>Zwischensumme: ${subtotal.toFixed(2)} €</p>
-        <p>Lieferkosten: ${delivery.toFixed(2)} €</p>
-        <p><strong>Gesamt: ${total.toFixed(2)} €</strong></p>
+        <p><span class="label">Zwischensumme:</span> <span class="value">${subtotal.toFixed(2)} €</span></p>
+        <p><span class="label">Lieferkosten:</span> <span class="value">${delivery.toFixed(2)} €</span></p>
+        <p><span class="label">Gesamt:</span> <span class="value">${total.toFixed(2)} €</span></p>
+        <button onclick="addOrder()" class="orderButton">Bestellen</button>
     `;
 }

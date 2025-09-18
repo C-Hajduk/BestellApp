@@ -108,15 +108,13 @@ function renderBasketSummary() {
   let total = 0;
   // Gesamtpreis (Zwischensumme + Lieferkosten)
   
-
   for (let index = 0; index < basketDishes.length; index++) {
     let dish = basketDishes[index];
     // Speichert das aktuelle Gericht in der Variable dish für einfachere Berechnungen
     let priceForDish = dish.preis * dish.amount;
     // Berechnet den Preis für dieses Gericht: Einzelpreis * Menge
     subtotal += priceForDish;
-    // Addiert den Preis dieses Gerichtes zur Zwischensumme  
-    
+    // Addiert den Preis dieses Gerichtes zur Zwischensumme
   }
 
   if (basketDishes.length > 0) {
@@ -147,6 +145,38 @@ function deleteBasket(indexBasket) {
   renderBasket();
   // Aktualisiert den Basket visuell.
 }
+
+/* ======================================
+        Dialog öffnen für Bestellung
+========================================= */
+
+function addOrder () { 
+  let dialog = document.getElementById("dialog");
+  basketDishes = [];
+  dialog.showModal();
+
+   dialog.addEventListener("click", function (event) {
+    if (event.target === dialog) {
+      closeDialog();
+    }
+  });
+
+  renderBasket();
+}
+
+/* ======================================
+        Dialog öffnen für Bestellung
+========================================= */
+
+function closeDialog() {
+  let dialogRef = document.getElementById("dialog");
+  dialogRef.close();
+}
+
+
+
+
+
 
 /* =====================================
             Local Storage

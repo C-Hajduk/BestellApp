@@ -103,3 +103,29 @@
   gap: 8px;
   width: 100%;  /* Bedienelemente in einer Zeile */
 }
+
+#basketSummary {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.orderButton {
+  font-size: 18px;
+  font-weight: bold;
+  color: #FFA000;
+  background: none;
+  height: 60px;
+}
+
+#basketSummary p {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#basketSummary p:last-of-type {
+  font-weight: bold;
+  color: #FFA000;
+}

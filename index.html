@@ -10,8 +10,13 @@
     <link rel="stylesheet" href="./syles/basket.css">
 </head>
 
+<!-- Körper der Webseite.
+     "onload" bedeutet: Sobald die Seite geladen ist, wird die Funktion renderDishes() aufgerufen -->
+
 <body onload="renderDishes()">
 
+
+    <!-- Kopfbereich der Seite, enthält Logo und Navigation -->
     <header class="header">
 
         <img src="./assets/Logo/Logo.png" alt="Bestell App Logo">
@@ -44,12 +49,13 @@
 
     </header>
 
+    <!-- Hauptinhalt der Seite -->
     <main class="main_container">
 
+        <!-- Bereich für die Gerichte -->
         <Section class="menu_wrapper">
 
-            <div class="restaurant_hero">
-            </div>
+            <div class="restaurant_hero"></div>
 
             <div class="restaurant_logo"></div>
 
@@ -104,6 +110,11 @@
             </div>
 
         </section>
+
+        <dialog class="dialog" id="dialog">
+            <h2>Ihre Bestellung ist bei uns eingegangen</h2>
+            <button class="closeButtonDialog" onclick="closeDialog()"></button>
+        </dialog>
 
     </main>
 
