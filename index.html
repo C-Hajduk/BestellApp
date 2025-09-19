@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./syles/standard.css">
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./syles/basket.css">
+    <link rel="stylesheet" href="./syles/media@.css">
 </head>
 
 <!-- Körper der Webseite.
@@ -112,9 +113,14 @@
         </section>
 
         <dialog class="dialog" id="dialog">
-            <h2>Ihre Bestellung ist bei uns eingegangen</h2>
             <button class="closeButtonDialog" onclick="closeDialog()">close</button>
+            <div class="dialog_content">
+                <h2>Ihre Bestellung ist bei uns eingegangen</h2>
+            </div>
         </dialog>
+
+        <!-- Button für Warenkorb erstellen bei @media only screen and (max-width: 900px) -->
+
 
     </main>
 

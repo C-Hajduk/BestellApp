@@ -1,0 +1,10 @@
+@media only screen and (max-width: 900px) {
+    .basket_wrapper {
+        display: none;
+    }
+
+    .menu_wrapper {
+        width: 100%;
+    }
+}
+

@@ -278,14 +278,14 @@
 }
 
 .dialog {
-  width: 600px;
-  height: 350px;
-  inset: 0;
-  border: 2px solid #7C521B;
-  border-radius: 8px;
-  top: 0;
-  left: 0;
-  margin: auto;
+  width: 600px; 
+  height: 350px; 
+  inset: 0; 
+  border: 2px solid #7C521B; 
+  border-radius: 8px; 
+  top: 0; 
+  left: 0; 
+  margin: auto; 
   background-color: #000223;
 }
 
@@ -294,24 +294,29 @@
   opacity: 1;
 }
 
-.dialog h2 {
+.dialog_content {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
-  width: 100%;
-  position: absolute;
+}
+
+.dialog h2 {
+  margin: 0;
   color: #FFA000;
+  text-align: center;
 }
 
 .dialog button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
   height: 26px;
   width: 46px;
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: #FFA000;
-  margin-left: 8px;
-  margin-top: 8px;
 }
 
 /*===============================

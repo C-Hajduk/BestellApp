@@ -131,6 +131,7 @@ function renderBasketSummary() {
   basketSummaryRef.innerHTML = generateBasketSummaryTemplate(subtotal, delivery, total);
   // Wir rufen das Template auf, das den HTML-Code für die Summenanzeige erzeugt
   // Die berechneten Werte werden direkt in das Template eingefügt
+
 }
 
 /* ====================================
@@ -151,22 +152,30 @@ function deleteBasket(indexBasket) {
 ========================================= */
 
 function addOrder () { 
-  let dialog = document.getElementById("dialog");
-  basketDishes = [];
-  dialog.showModal();
+  let dialog = document.getElementById("dialog"); // Sucht das Dialog-Element im HTML
+  
+  if (basketDishes.length > 0) { // Prüft, ob der Warenkorb nicht leer ist
+  dialog.showModal(); // Öffnet den Dialog, der im HTML definiert ist
 
-   dialog.addEventListener("click", function (event) {
-    if (event.target === dialog) {
-      closeDialog();
+  for (let index = 0; index < basketDishes.length; index++) {
+    basketDishes[index].amount = 0;   
+  }
+  basketDishes = []; // Leert den Warenkorb
+  }
+
+  dialog.addEventListener("click", function (event) { // Fügt einen Event-Listener hinzu, der auf Klicks im Dialog hört
+    // Wenn außerhalb des Dialog-Inhalts geklickt wird, soll der Dialog geschlossen werden
+    if (event.target === dialog) { 
+      closeDialog(); // Ruft die Funktion zum Schließen des Dialogs auf
     }
   });
 
   renderBasket();
 }
 
-function closeDialog() {
-  let dialogRef = document.getElementById("dialog");
-  dialogRef.close();
+function closeDialog() { // Funktion zum Schließen des Dialogs
+  let dialogRef = document.getElementById("dialog"); // Sucht das Dialog-Element im HTML
+  dialogRef.close(); // Schließt den Dialog
 }
 
 
@@ -174,14 +183,3 @@ function closeDialog() {
             Local Storage
 ======================================== */
 
-/* function saveToLocalStorage(name, array) {
-  localStorage.setItem(name,JSON.stringify(array));
-}
-
-function getFromLocalStorage(name, myArray) {
-  let myArray = JSON.parse(localStorage.getItem(name))
-  if (myArray) {
-    myArray = myArray;
-    return myArray;
-  }
-} */
