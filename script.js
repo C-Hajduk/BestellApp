@@ -157,8 +157,8 @@ function addOrder () {
   if (basketDishes.length > 0) { // Prüft, ob der Warenkorb nicht leer ist
   dialog.showModal(); // Öffnet den Dialog, der im HTML definiert ist
 
-  for (let index = 0; index < basketDishes.length; index++) {
-    basketDishes[index].amount = 0;   
+  for (let index = 0; index < basketDishes.length; index++) { // Geht jedes Gericht im Warenkorb durch
+    basketDishes[index].amount = 0; // Setzt die Menge jedes Gerichtes im Warenkorb auf 0   
   }
   basketDishes = []; // Leert den Warenkorb
   }

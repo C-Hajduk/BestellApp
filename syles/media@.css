@@ -1,4 +1,4 @@
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 850px) {
     .basket_wrapper {
         display: none;
     }
@@ -6,5 +6,39 @@
     .menu_wrapper {
         width: 100%;
     }
+
+    #mobileBasket {
+        display: block;
+        margin-right: 60px;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .mobile_basket_button {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;        /* sorgt für volle Breite */
+        width: 100%;
+        padding: 16px;
+        background-color: #FFA000;
+        border: none;
+        border-radius: 0;
+        color: #000223;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
 }
 
+    .mobile_basket_button img {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        object-fit: cover;
+        background-color: #FFFAFE;
+    }
+
+    footer {
+        display: none;
+    }
+}
