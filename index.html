@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./syles/basket.css">
     <link rel="stylesheet" href="./syles/media@.css">
     <link rel="stylesheet" href="./syles/mobilebasket.css">
+    <link rel="stylesheet" href="./syles/mobiledialog.css">
 </head>
 
 <!-- Körper der Webseite.
@@ -120,12 +121,31 @@
             </div>
         </dialog>
 
-        <!-- Button für Warenkorb erstellen bei @media only screen and (max-width: 900px) -->
+
         <div id="mobileBasket" class="mobile_basket">
-            <button class="mobile_basket_button"><img
+            <button onclick="openBasketMobile()" class="mobile_basket_button"><img
                     src="./assets/images/20250915_1747_Interaktive Bestell-App Grafik_simple_compose_01k570ya8jekw9hwmca1ctd1w2.png"
-                    alt="Papierkorb"></button>
+                    alt="order Image"></button>
         </div>
+
+
+        <!-- beim klicken des mobilbasket soll sich ein Dialog öffnen -->
+
+        <dialog id="mobileBasketDialog" class="mobile_basket_dialog">
+            <div class="mobil_basket_wrapper">
+                <button class="closeButtonDialog" onclick="closeDialogMobil()">Close</button>
+                <div class="mobile_basket_header">
+                    <h2>Warenkorb</h2>
+                </div>
+                <hr>
+                <div id="mobileBasketDishes" class="mobile_basket_dishes">
+                    <!-- Dishes aus dem menuContent -->
+                </div>
+                <hr>
+                <div id="mobileBasketSummary" class="mobile_basket_summary">
+                    <!-- Hier kommt das Template generateBasketSummary -->
+                </div>
+            </div>
 
     </main>
 

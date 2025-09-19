@@ -37,9 +37,19 @@ function renderBasket() {
     // 2. Das generierte HTML wird an das Basket-Div angehängt
     // So wird jedes Gericht einzeln dargestellt
   }
-  renderBasketSummary()
+  renderBasketSummary();
   // Am Ende der Funktion rufen wir renderBasketSummary() auf,
   // um die Zwischensumme, Lieferkosten und Gesamtpreis zu berechnen und anzuzeigen
+}
+
+function renderBasketMobile() {
+  let mobileBasketDishesRef = document.getElementById("mobileBasketDishes");
+  mobileBasketDishesRef.innerHTML = "";
+
+  for (let indexBasket = 0; indexBasket < basketDishes.length; indexBasket++) {
+    mobileBasketDishesRef.innerHTML += generateBasketTemplate(indexBasket);
+}
+renderBasketSummary();
 }
 
 /* ====================================
@@ -131,7 +141,6 @@ function renderBasketSummary() {
   basketSummaryRef.innerHTML = generateBasketSummaryTemplate(subtotal, delivery, total);
   // Wir rufen das Template auf, das den HTML-Code für die Summenanzeige erzeugt
   // Die berechneten Werte werden direkt in das Template eingefügt
-
 }
 
 /* ====================================
@@ -178,6 +187,22 @@ function closeDialog() { // Funktion zum Schließen des Dialogs
   dialogRef.close(); // Schließt den Dialog
 }
 
+
+/* =====================================
+        Mobile BasketDialog öffnen und schließen
+======================================== */
+
+function openBasketMobile () {
+  let dialog = document.getElementById("mobileBasketDialog");
+   dialog.showModal();
+
+   renderBasketMobile();
+}
+
+function closeDialogMobil() { // Funktion zum Schließen des Dialogs
+  let dialogRef = document.getElementById("mobileBasketDialog"); // Sucht das Dialog-Element im HTML
+  dialogRef.close();
+}
 
 /* =====================================
             Local Storage
